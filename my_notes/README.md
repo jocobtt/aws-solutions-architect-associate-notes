@@ -9,34 +9,104 @@ I have also been currently going through the [Jon Bonso Udemy practice tests] (h
 
 
 ### Contents 
-- [IAM] (#IAM)
-- [S3] (#S3)
-- [Cloudfront] (#Cloudfront)
-- [Storage Gateway] (#Storage Gateway)
-- [EC2] (#EC2)
-- [CloudWatch] (#CloudWatch)
-- [EFS] (#EFS)
-- [RDS] (#RDS)
-- [DynamoDB] (#DynamoDB)
-- [Redshift] (#Redshift)
-- [Aurora] (#Aurora)
-- [Elasticache] (#Elasticache)
-- [Route53] (#Route53)
-- [VPC] (#VPC)
-- [NAT] (#NAT)
-- [ACL] (#ACL)
-- [ELB] (#ELB)
-- [CloudFormation] (#CloudFormation)
-- [SQS] (#SQS)
-- [SWF] (#SWF)
-- [SNS] (#SNS)
-- [Elastic Transcoder] (#Elastic Transcoder)
-- [API Gateway] (#API Gateway)
-- [Kinesis] (#Kinesis)
-- [Web Identity Federation - Cognito] (#WIF - Cognito)
-- [Lambda] (#Lambda)
-- [Test Tips] (#Test Tips)
-- [Test Breakdown] (#Test Breakdown)
+- [IAM](#IAM)
+- [S3](#S3)
+- [CloudFront](#CloudFront)
+- [Storage Gateway](#Storage Gateway)
+- [EC2](#EC2)
+- [CloudWatch](#CloudWatch)
+- [EFS](#EFS)
+- [RDS](#RDS)
+- [DynamoDB](#DynamoDB)
+- [Redshift](#Redshift)
+- [Aurora](#Aurora)
+- [Elasticache](#Elasticache)
+- [Route53](#Route53)
+- [VPC](#VPC)
+- [NAT](#NAT)
+- [ACL](#ACL)
+- [ELB](#ELB)
+- [CloudFormation](#CloudFormation)
+- [SQS](#SQS)
+- [SWF](#SWF)
+- [SNS](#SNS)
+- [Elastic Transcoder](#Elastic Transcoder)
+- [API Gateway](#API Gateway)
+- [Kinesis](#Kinesis)
+- [Web Identity Federation - Cognito](#WIF - Cognito)
+- [Lambda](#Lambda)
+- [Test Tips](#Test Tips)
+- [Test Layout](#Test Layout)
 
 
+# IAM
+#### Users
+
+#### Roles
+
+#### Permissions
+
+#### MFA
+
+
+# S3
+
+#### KMS
+
+
+# CloudFront
+
+# Storage Gateway
+
+# EC2
+
+# CloudWatch
+
+# EFS
+
+# RDS
+
+# DynamoDB
+
+# Redshift
+
+# Aurora 
+
+# Elasticache
+
+# Route53
+
+# VPC
+
+# NAT
+
+# ACL
+
+# ELB
+
+### Classic Load Balancer
+### Application Load Balancer
+### Network Load Balancer
+
+# CloudFormation
+
+# SQS
+
+# SWF
+
+# SNS
+
+# Elastic Transcoder 
+
+# API Gateway 
+
+# Kinesis 
+
+# WIF - Cognito 
+
+# Lambda 
+
+# Test Tips
+
+# Test Layout
 
