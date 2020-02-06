@@ -12,7 +12,7 @@ I have also been currently going through the [Jon Bonso Udemy practice tests] (h
 - [IAM](#IAM)
 - [S3](#S3)
 - [CloudFront](#CloudFront)
-- [Storage Gateway](#Storage Gateway)
+- [Storage Gateway](#Storage-Gateway)
 - [EC2](#EC2)
 - [CloudWatch](#CloudWatch)
 - [EFS](#EFS)
@@ -30,13 +30,13 @@ I have also been currently going through the [Jon Bonso Udemy practice tests] (h
 - [SQS](#SQS)
 - [SWF](#SWF)
 - [SNS](#SNS)
-- [Elastic Transcoder](#Elastic Transcoder)
-- [API Gateway](#API Gateway)
+- [Elastic Transcoder](#Elastic-Transcoder)
+- [API Gateway](#API-Gateway)
 - [Kinesis](#Kinesis)
-- [Web Identity Federation - Cognito](#WIF - Cognito)
+- [Web Identity Federation - Cognito](#WIF-Cognito)
 - [Lambda](#Lambda)
-- [Test Tips](#Test Tips)
-- [Test Layout](#Test Layout)
+- [Test Tips](#Test-Tips)
+- [Test Layout](#Test-Layout)
 
 
 # IAM
