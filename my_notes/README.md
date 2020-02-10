@@ -51,7 +51,7 @@ I have also been currently going through the [Jon Bonso Udemy practice tests] (h
 
 # S3
 
-#### KMS
+### KMS
 
 
 # CloudFront
@@ -59,18 +59,57 @@ I have also been currently going through the [Jon Bonso Udemy practice tests] (h
 # Storage Gateway
 
 # EC2
-
+### Bastion Hosts
 # CloudWatch
 
 # EFS
 
 # RDS
+
+What is RDS::
+
+
+Read replicas can be multi-AZ must have backups turned on for original DB. 
 ### Overall 
 - Can force a failover from one RDS AZ to another by doing a reboot - can click reboot w/ failover 
-- 
+- can't log into RDS instances (to patch instances etc) at all. Patching etc. is AWS's responsibility 
+- Performance needs read replicas
+- multi AZ is for disaster recovery (only on SQL, Oracle, MySQL, PostGres & mariaDB)
+- two types of backups: auto back up(scheduled maintenence window) and database snapshot (manually performed)
+- A read replica can be promoted to master but this will break the read replica.
+- encryption at rest is available on MySQL, Oracle, SQL server, PostGRE, MariaDB, and Aurora - done through KMS.
+
 # DynamoDB
 
+AWS's NOSQL database offering. *what it is*
+
+Stored on SSD storage, spread across 3 geo distinct data centers. Has a default of eventual consistent reads and strongly consistent reads. Eventual consistency w/in one sec read from write strongly consistent - w/in less than one sec read. 
+--should have more about this**
+
 # Redshift
+*what it is*
+
+Can be either single node or multi-node. Redshift is OLAP, BI/Data warehousing.
+
+Multi-node: leader node makes client connections and recieves queries compute node (store data & perform queries/computations) up to 128 compute nodes 
+compresses columns. 
+Redshift backups - enabled by default w/ 1 day retention period, max 35 days at least 3 copies of your data (replica on compute nodes, original and backup on S3).
+
+### Overall
+- Redshift can asynchronously replicate your snapshots to S3 in another region for Disaster recovery.
+- redshift priced on compute node hours - 1 unite - per node per hour not charged for leader node hours 
+- charged for backups & data transfer (only w/in VPC).
+- Always encrypted using SSL transit.
+- Encrypted @ rest using FES - 256 by default redshift handles key mgmt. 
+- new RDS DB instances automated backups are enabled by default 
+- OLTP is best/most suited w/ RDS
+- no charge incurred when replicating data from primary RDS to secondary RDS instance. 
+- RDS DB security groups - instance port # auto applied to RDS DB security group
+
+Availability - currently available in one AZ (non multinode AZ) can restore snapshots to new AZ in DR
+
+
+
 
 # Aurora 
 
@@ -79,10 +118,27 @@ I have also been currently going through the [Jon Bonso Udemy practice tests] (h
 # Route53
 
 # VPC
+### VPC Flow Logs 
 
-# NAT
+### VPC endpoints
 
-# ACL
+### Overall/Summary
+
+# NAT Gateway
+*what it is*
+- redundant inside AZ - not single ec2 instance - can't have multiple NAT gateways inside one AZ
+- start at 5 Gops & scales currently to 45 Gops
+- no need to patch OS
+- not associated w/ security groups 
+- auto assigned a public IP
+- remember to update your route tables
+- no need to disable source/destination checks 
+
+
+# NACL
+*what it is*
+Default is to deny inbound & outbound traffic. 
+Order matters - if deny is below allow, allow will trump deny etc. 
 
 # ELB/HA
 Elastic Load Balancer. How you allow your applications - ie EC2 instances - to automatically distribute traffic to your application across multiple targets. There are 3 types of ELB's - classic, application, and network load balancers. There will be around 10 or so questions on this. Should most likely read the FAQs for this one. 
@@ -168,6 +224,23 @@ SNS pushes, SQS polls(pulls). SNS and SQS both message.
 - pay based on minutes you transcode & resolution at which you transcode. 
 
 # API Gateway 
+*what it is*
+- Publish, maintain, & secure API's (don't need EC2 connections) 
+- used usually to be connected to Lambda functions
+- exposes HTTPS endpoints to define a restful API
+- severless-ly connect to services like lambda & DynamoDB
+- send each API endpoint to diff target 
+- run efficiently w/ low cost 
+- scale effortlessly 
+- track and control usage by API key 
+- throttle requests to prevent attacks
+- connect to cloudwatch to log all requests for monitoring
+- maintain multiple versions of your API
+
+Deploy API to stage. Uses API gateway domain by default, can use custom domain, now supports AWS cert manager: free SSL/TLS certs
+
+### Cors in action:
+
 
 # Kinesis 
 
