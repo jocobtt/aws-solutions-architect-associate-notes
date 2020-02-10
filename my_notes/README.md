@@ -282,6 +282,41 @@ Works with firehose & streams and can analyze data on the fly in either service 
 # WIF - Cognito 
 
 # Lambda 
+Lambda is compute service where you can upload your code and create a function, lambda takes care of provisioning and managing the servers and resources. No need to worry about the OS, patching etc. 
+
+Can use as: 
+- an event driven compute service where lambda runs your code in response to events 
+- as a compute service to run your code in response to HTTP requests using API gateway or API calls made using AWS SDKs
+
+Only need to worry about your code. Lambda= ultimate abstraction layer.
+- data ceners, hardware, assemply, high level languages, operating systems, app layer/AWS API's, AWS lambda. 
+- need a DB that's serverless if using a DB w/ lambda 
+- Priced by # of requests or duration of requests
+- lambda scales out (not up) automatically 
+- lambda functions are independent, 1 event = 1 function
+- lambda is serverless
+- know what services are serverless (for test) ie lambda etc. **
+- Lambda functions can trigger other lambda functions, 1 event = x functions if functions trigger other functions
+- architectures can get extrememly complicated, use AWS x-ray to debug
+- lambda can do things globally, ie backup s3 buckets to other s3 buckets 
+- know lambda triggers**
+- Know what can't trigger AWS
+
+### Diff types of architecture 
+Traditional architecture:
+```mermaid
+graph TB
+    Load Balancer-->EC2;
+    EC2-->RDS(can't scale super well w/out issues);
+```
+
+Serverless architecture:
+```mermaid
+graph TL
+    API Gateway-->Lambda;
+    Lambda-->DynamoDB;
+```
+
 
 # Test Tips
 
