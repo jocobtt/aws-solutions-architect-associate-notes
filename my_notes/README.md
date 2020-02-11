@@ -342,7 +342,7 @@ Works with firehose & streams and can analyze data on the fly in either service 
 
 
 # WIF - Cognito 
-
+Web idel fed lets you give your users acess to AWS resources after 
 # Lambda 
 Lambda is compute service where you can upload your code and create a function, lambda takes care of provisioning and managing the servers and resources. No need to worry about the OS, patching etc. 
 
