@@ -116,16 +116,78 @@ Availability - currently available in one AZ (non multinode AZ) can restore snap
 # Elasticache
 
 # Route53
+Consisting of 4-5 Q's on exam
+
+### DNS 101
+- DNS is like a phone book linking web names to ip addresses
+- CNAME= canonical name- used to reolve one domain name to another ie route mobile traffic address and desktop address to same address - reference. 
+- Elastic load balancers don't have pre-defined IPv4 addresses. You resolve to them using a DNS name
+- Understand diff between CNAME & alias record - CNAME = references traffic to diff address. 
+- Alias records = map resource record sets in your hosted zone to ELB, S3 or cloudfront distributions
+- given the choice always choose an alias record over CNAME **
+
+Routing Types:
+-------------
+
+Simple Routing - one record w/ multiple IP addresses. If specify multiple values in a record route53 returns all values to user in random order. 
+
+Weighted Routing Policy - allows you to split your traffic to regions based on diff weights assigned ie 10% of traffic to x & 90% to y. 
+- health checks set on indv recordsets, if fails check it is removed until it passes.
+
+Latency Routing Policy - Route traffic based on lowest network latency for your end user. Create latency based routing by creating latency resources record set for resource (EC2 or ELB) that hosts website. 
+
+Failover Routing Policy - Used to create active/passive set up - ie primary & scondary regions & monitor with health checks if primary (active) fails sends traffic to secondary (passive)
+
+Geolocation routing - choose where to send traffic based on location of user
+
+geo proximity routing - route traffic to resources based on geographic location of your users & resources. 
+
+multi value answer policy - same as simple routing but can put health checks on each record set. 
 
 # VPC
+5-10 Q's on this - way important. Should be able to build a VPC from memory!!
+VPC = virtual private cloud - virtual data center in the cloud ie logically isolated section of AWS where you have complete control 
+
+
+What can we do w/ a VPC? - launch instances into subnet of our choosing. 
+Assign custom IP ranges between each subnet, configure route tables between subnets, create internet gateway & attach to VPC, better security control, security groups & subnet NACLS
+
 ### VPC Flow Logs 
+*what is this*
+- Can't enable flow logs for VPCs that are peered w/ your VPC unless the peer VPC is in your account. 
+- You can't turn a flow log 
+- after you've created a flow log, you can't choose it's config ie can't associate a diff IAM role w/ the flow log 
+- not all IP traffic is monitored 
+
 
 ### VPC endpoints
+- privately connect your VPC to AWS services & endpoints don't require public IP addresses to configure?
+- 2 types - interface & gateway
+- interface endpoint- an elastic network interface w/ a private IP that serves as an entry point for traffic destined to a supported device. 
+- gateway endpoint - 
 
 ### Overall/Summary
+- Network ACL's are stateless(no session info is retained by the receiver updates aren't automatic) & do allow rules & deny rules - 1st line of defense.
+- Security groups are stateful(session info is stored updates are automically implemented) & second line of defense for instance.
+- Default VPC is user friendly - immedietley deploy instances, all subnets in default VPC have a route out to the internet, each EC2 instance was both a public & private IP address.  
+- When you create a VPC by default a route table network ACL & security group are created 
+- subnets can't span across AZs - one subnet per one AZ 
+- Only one internet gateway per VPC 
+- Internet gateways are built to be highly available 
+- security groups are per VPC 
+- VPC peering - connect one VPC w/ another via direct network route using private IP address. 
+...Instances behave as if they were on the same private network. 
+...Star configuration - ie 1 central VPC peers w/ 4 others. Can't talk to one VPC through another - have to peer any instance you want to have talk to each other. 
+- Network ACL's order trumps rules - rule higher up will cancel out one lower - ie rule 1 over rules contradictory rule 5 etc. 
 
 # NAT Gateway
 *what it is*
+NAT = network address translation. NAT instance single EC2 instance to translate network address. NAT gateway is highly available gateway. Gateway for multiple instances etc. 
+- when creating NAT instance disable source/destination check on instance. 
+- NAT instances must be in the public subnet
+- must be routed out of pulbic subnet to NAT instance in order for it to work
+- amount of traffic NAT instance can support depends on the instance size
+- NAT instances always behind a security group. 
 - redundant inside AZ - not single ec2 instance - can't have multiple NAT gateways inside one AZ
 - start at 5 Gops & scales currently to 45 Gops
 - no need to patch OS
